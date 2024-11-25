@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+  <display-name>StudentManagement</display-name>
+  
+
+<servlet>
+    <servlet-name>StudentServlet</servlet-name>
+    <servlet-class>com.example.controller.StudentServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>StudentServlet</servlet-name>
+    <url-pattern>/students/*</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.example.controller.RegisterServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/registerAction</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>AuthenticationServlet</servlet-name>
+    <servlet-class>com.example.controller.AuthenticationServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>AuthenticationServlet</servlet-name>
+    <url-pattern>/auth/*</url-pattern>
+</servlet-mapping>
+
+<!-- Default Servlet -->
+<servlet>
+    <servlet-name>default</servlet-name>
+    <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/static/*</url-pattern>
+</servlet-mapping>
+    
+    
+    <listener>
+    <listener-class>com.example.listener.AppContextListener</listener-class>
+</listener>
+    
+    
+    
+    <!-- Serve the JSP directly without conflicting mapping -->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/css/*</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+</web-app>
